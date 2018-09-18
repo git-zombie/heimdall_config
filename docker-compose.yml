@@ -1,0 +1,24 @@
+version: '3'
+services:
+  heimdall:
+    image: linuxserver/heimdall
+    container_name: heimdall
+    restart: always
+    hostname: heimdall
+    volumes: 
+      - /home/pi/heimdall/config:/config
+#    network_mode: bridge 
+    environment: 
+      - TZ=America\New_York
+    ports: 
+      - 82:80
+    networks: 
+      iot:
+      usenet:
+      heimdall_default:
+networks:
+  iot:
+    external: true
+  usenet:
+    external: true
+  heimdall_default:
